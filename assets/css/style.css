@@ -10918,7 +10918,6 @@ textarea.form-control-lg {
     opacity: 1; /* Se vuelve completamente visible */
   }
 }
-
 @keyframes entradaLadosSuaveLento {
   0% {
     opacity: 0;
@@ -10929,8 +10928,8 @@ textarea.form-control-lg {
     transform: translateX(0);
   }
   100% {
-    opacity: 0;
-    transform: translateX(100%);
+    opacity: 1; /* Mantiene la opacidad al 100% */
+    transform: translateX(0); /* Mantiene la posición final */
   }
 }
 
@@ -10938,8 +10937,9 @@ textarea.form-control-lg {
   display: inline-block;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
-  animation: entradaLadosSuaveLento 5s ease-in-out infinite;
+  animation: entradaLadosSuaveLento 5s ease-in-out forwards; /* Solo entrada, mantiene el estado final */
 }
+
 
 
 .display-2--description {
