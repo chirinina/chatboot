@@ -208,10 +208,15 @@
       }
     });
   }
-
   // Llamar la función cuando se haga scroll
   window.addEventListener('scroll', checkVisibility);
   checkVisibility(); // Verificar al cargar la página
+
+//BLOQUEO DE CLIK DERECHO
+    document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
 </script>
 
 
