@@ -3,7 +3,7 @@ PLANTILLA DE EFRAIN EN  TailwindCSS
 
 > [LIVE DEMO](https://mhaecal.github.io/frontend/skilline)
 
-![alt Free Tailwind Landing Page Template]([![Captura-de-pantalla-2025-02-12-130119.png](https://i.postimg.cc/vBXfXJ2Z/Captura-de-pantalla-2025-02-12-130119.png)](https://postimg.cc/JDDsz2Wf))
+![alt Free Tailwind Landing Page Template](Captura-de-pantalla-2025-02-12-130119.png](https://i.postimg.cc/vBXfXJ2Z/Captura-de-pantalla-2025-02-12-130119.png)](https://postimg.cc/JDDsz2Wf))
 
 ## Built with:
 - Tailwind CSS ^2.0
