@@ -236,7 +236,7 @@ width: 100%;
 display: flex;
 gap: 5px;
 /* background: #d4d4d4; */
-padding: 15px 20px;
+padding: 48px 12px;
 }
 /* Media queries para hacer que sea responsivo */
 @media (max-width: 768px) {
