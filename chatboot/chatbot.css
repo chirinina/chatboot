@@ -361,7 +361,7 @@ cursor: pointer;
 width: 59%; /* Botón con ancho específico */
 text-align: left;
 margin-left: 12px;
-font-size: 13px; /* Ajusta el tamaño de la letra aquí */
+font-size: 10px; /* Ajusta el tamaño de la letra aquí */
 }
 .response-button:hover {
 background: #163d5c;
