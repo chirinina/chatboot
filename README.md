@@ -1,9 +1,24 @@
-# Bootstrap 5 Portfolio Template
+# CHIRI NINA
+PLANTILLA DE EFRAIN EN  TailwindCSS
 
-### TEMPLATE SCREENSHOT
+> [LIVE DEMO](https://mhaecal.github.io/frontend/skilline)
 
-### WEBSITE PREVIEW 
+![alt Free Tailwind Landing Page Template](https://i.postimg.cc/q7xRmNVp/FB-IMG-16158730841972067.jpg)
 
-[BOOTSTRAP 5 TEMPLATE PREVIEW ](https://bootstrap-5-website.netlify.app/)
+## Built with:
+- Tailwind CSS ^2.0
+- Alpine JS ^2.*
+- AOS - Animate on scroll library
 
-![Fullscreenshot](https://user-images.githubusercontent.com/11283502/116909562-0c139000-ac4d-11eb-8ae0-26b6d790981e.jpg) 
+## Getting Started
+The template is just a HTML file using a CDN service
+
+`git clone https://github.com/mhaecal/skilline-landing-page.git`
+
+#
+Use it for learn, but please don’t republish, redistribute, or resell the template.
+
+For personal or commersial project, just contact [Irvan Moses]([https://www.facebook.com/irvan.moses](https://www.facebook.com/jhery.chiri.1/))
+
+- Code by mhaecal
+- UI/UX by irvanmoses
