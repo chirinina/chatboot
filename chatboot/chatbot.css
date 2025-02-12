@@ -186,7 +186,7 @@ display: none;
 transform: translateY(-50%);
 }
 .chatbot .chatbox {
-height: 355px;
+height: 380px;
 padding: 15px;
 white-space: 15px;
 overflow-y: auto;
@@ -236,7 +236,7 @@ width: 100%;
 display: flex;
 gap: 5px;
 /* background: #d4d4d4; */
-padding: 48px 12px;
+padding: 15px 20px;
 }
 /* Media queries para hacer que sea responsivo */
 @media (max-width: 768px) {
@@ -259,6 +259,27 @@ padding: 48px 12px;
 }
 .chatbot .chat-input {
   padding: 10px 15px; /* Ajusta el padding de la caja de entrada */
+}
+}
+@media (max-width: 480px) {
+.chatbot {
+  right: 10px; /* Más cerca del borde */
+  bottom: 60px; /* Ajusta la posición */
+  width: 250px; /* Reduces aún más el tamaño */
+  transform: scale(0.7); /* Cambia el tamaño */
+}
+.chatbot header h2 {
+  font-size: 1rem; /* Reduce aún más el tamaño del texto */
+}
+.chatbox {
+  height: 250px; /* Ajusta el alto de la caja de chat */
+}
+.chatbox .chat p {
+  font-size: 0.85rem; /* Ajusta el tamaño del texto */
+  padding: 8px; /* Ajusta el padding */
+}
+.chatbot .chat-input {
+  padding: 48px 12px: /* Ajusta el padding de la caja de entrada */
 }
 }
 @media (max-width: 480px) {
