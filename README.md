@@ -1,7 +1,7 @@
 # CHIRI NINA
 PLANTILLA DE EFRAIN EN  TailwindCSS
 
-> [LIVE DEMO](https://mhaecal.github.io/frontend/skilline)
+> [LIVE DEMO]([https://mhaecal.github.io/frontend/skilline](https://lumibo.vercel.app/))
 
 ![alt Free Tailwind Landing Page Template](Captura-de-pantalla-2025-02-12-130119.png](https://i.postimg.cc/vBXfXJ2Z/Captura-de-pantalla-2025-02-12-130119.png)](https://postimg.cc/JDDsz2Wf))
 
