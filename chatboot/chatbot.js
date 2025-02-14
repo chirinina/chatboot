@@ -322,3 +322,7 @@ document.getElementById('home-btn').addEventListener('mouseenter', function () {
       handleButtonClick(message, message);
     });
     }); 
+// BLOQUEO DE CLIK DERECHO
+ document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+  });
