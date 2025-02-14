@@ -1,9 +1,9 @@
-# CHIRI NINA
-PLANTILLA DE EFRAIN EN  TailwindCSS
+# Skilline Landing Page
+Free landing page template built on top of TailwindCSS
 
-> [LIVE DEMO]([https://mhaecal.github.io/frontend/skilline](https://lumibo.vercel.app/))
+> [LIVE DEMO](https://mhaecal.github.io/frontend/skilline)
 
-![alt Free Tailwind Landing Page Template](Captura-de-pantalla-2025-02-12-130119.png](https://i.postimg.cc/vBXfXJ2Z/Captura-de-pantalla-2025-02-12-130119.png)](https://postimg.cc/JDDsz2Wf))
+![alt Free Tailwind Landing Page Template](https://i.postimg.cc/q7xRmNVp/FB-IMG-16158730841972067.jpg)
 
 ## Built with:
 - Tailwind CSS ^2.0
@@ -18,7 +18,7 @@ The template is just a HTML file using a CDN service
 #
 Use it for learn, but please don’t republish, redistribute, or resell the template.
 
-For personal or commersial project, just contact [Irvan Moses]([https://www.facebook.com/irvan.moses](https://www.facebook.com/jhery.chiri.1/))
+For personal or commersial project, just contact [Irvan Moses](https://www.facebook.com/irvan.moses)
 
 - Code by mhaecal
 - UI/UX by irvanmoses

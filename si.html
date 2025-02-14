@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Marketing Avanzada</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+        .calculator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        .display {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            text-align: right;
+            font-size: 2em;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+        .buttons button {
+            padding: 20px;
+            font-size: 1.2em;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .buttons button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .buttons button:active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0.95);
+        }
+        .buttons .operator {
+            background: #FF5F6D;
+            color: #fff;
+        }
+        .buttons .operator:hover {
+            background: #FF8F6D;
+        }
+        .buttons .function {
+            background: #FFC371;
+            color: #fff;
+        }
+        .buttons .function:hover {
+            background: #FFA371;
+        }
+        .graph-container {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .controls button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            background: #FF5F6D;
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .controls button:hover {
+            background: #FF8F6D;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="function" onclick="clearDisplay()">C</button>
+            <button class="function" onclick="deleteLast()">←</button>
+            <button onclick="appendToDisplay('(')">(</button>
+            <button onclick="appendToDisplay(')')">)</button>
+            <button class="operator" onclick="appendToDisplay('^')">^</button>
+            <button class="function" onclick="appendToDisplay('sqrt(')">√</button>
+
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay('/')">/</button>
+            <button class="function" onclick="appendToDisplay('roi(')">ROI</button>
+            <button class="function" onclick="appendToDisplay('log(')">log</button>
+
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay('*')">*</button>
+            <button class="function" onclick="appendToDisplay('cpa(')">CPA</button>
+            <button class="function" onclick="appendToDisplay('exp(')">exp</button>
+
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
+            <button class="function" onclick="appendToDisplay('ctr(')">CTR</button>
+            <button class="function" onclick="appendToDisplay('abs(')">abs</button>
+
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button class="operator" onclick="calculateResult()">=</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+            <button class="function" onclick="appendToDisplay('clv(')">CLV</button>
+            <button class="function" onclick="appendToDisplay('round(')">round</button>
+
+            <button class="function" onclick="appendToDisplay('cac(')">CAC</button>
+            <button class="function" onclick="appendToDisplay('arpu(')">ARPU</button>
+            <button class="function" onclick="appendToDisplay('churn(')">Churn</button>
+            <button class="function" onclick="appendToDisplay('mau(')">MAU</button>
+            <button class="function" onclick="appendToDisplay('dau(')">DAU</button>
+            <button class="function" onclick="appendToDisplay('PI')">π</button>
+        </div>
+    </div>
+    <div class="graph-container">
+        <canvas id="chart"></canvas>
+    </div>
+    <div class="controls">
+        <button onclick="clearGraph()">Clear Graph</button>
+        <button onclick="toggleChartType()">Toggle Chart Type</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let display = document.getElementById('display');
+        const ctx = document.getElementById('chart').getContext('2d');
+        let chartType = 'line';
+        const chartData = {
+            labels: [],
+            datasets: [{
+                label: 'Marketing Metrics',
+                data: [],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false
+            }]
+        };
+        const chartConfig = {
+            type: chartType,
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+        const chart = new Chart(ctx, chartConfig);
+
+        function clearDisplay() {
+            display.textContent = '0';
+        }
+
+        function deleteLast() {
+            let currentText = display.textContent;
+            if (currentText.length === 1) {
+                display.textContent = '0';
+            } else {
+                display.textContent = currentText.slice(0, -1);
+            }
+        }
+
+        function appendToDisplay(value) {
+            if (display.textContent === '0' && value !== '.') {
+                display.textContent = value;
+            } else {
+                display.textContent += value;
+            }
+        }
+
+        function calculateResult() {
+            try {
+                let result = eval(display.textContent
+                    .replace('^', '**')
+                    .replace('roi', 'roiCalc')
+                    .replace('cpa', 'cpaCalc')
+                    .replace('ctr', 'ctrCalc')
+                    .replace('clv', 'clvCalc')
+                    .replace('cac', 'cacCalc')
+                    .replace('arpu', 'arpuCalc')
+                    .replace('churn', 'churnCalc')
+                    .replace('mau', 'mauCalc')
+                    .replace('dau', 'dauCalc')
+                    .replace('PI', Math.PI)
+                    .replace('log', 'Math.log10')
+                    .replace('exp', 'Math.exp')
+                    .replace('sqrt', 'Math.sqrt')
+                    .replace('abs', 'Math.abs')
+                    .replace('round', 'Math.round'));
+                display.textContent = result;
+
+                // Update chart data
+                chartData.labels.push(chartData.labels.length + 1);
+                chartData.datasets[0].data.push(result);
+                chart.update();
+            } catch {
+                display.textContent = 'Error';
+            }
+        }
+
+        function clearGraph() {
+            chartData.labels = [];
+            chartData.datasets[0].data = [];
+            chart.update();
+        }
+
+        function toggleChartType() {
+            chartType = chartType === 'line' ? 'bar' : 'line';
+            chartConfig.type = chartType;
+            chart.destroy();
+            new Chart(ctx, chartConfig);
+        }
+
+        function roiCalc(revenue, cost) {
+            return ((revenue - cost) / cost) * 100;
+        }
+
+        function cpaCalc(cost, conversions) {
+            return cost / conversions;
+        }
+
+        function ctrCalc(clicks, impressions) {
+            return (clicks / impressions) * 100;
+        }
+
+        function clvCalc(aov, purchaseFrequency, grossMargin) {
+            return aov * purchaseFrequency * grossMargin;
+        }
+
+        function cacCalc(marketingCost, customersAcquired) {
+            return marketingCost / customersAcquired;
+        }
+
+        function arpuCalc(revenue, users) {
+            return revenue / users;
+        }
+
+        function churnCalc(lostCustomers, initialCustomers) {
+            return (lostCustomers / initialCustomers) * 100;
+        }
+
+        function mauCalc(totalUsers, months) {
+            return totalUsers / months;
+        }
+
+        function dauCalc(totalUsers, days) {
+            return totalUsers / days;
+        }
+    </script>
+</body>
+</html>
