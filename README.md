@@ -1,9 +1,9 @@
 # Skilline Landing Page
 Free landing page template built on top of TailwindCSS
 
-> [LIVE DEMO](https://mhaecal.github.io/frontend/skilline)
+> [LIVE DEMO]([https://mhaecal.github.io/frontend/skilline](https://lumibo.vercel.app/))
 
-![alt Free Tailwind Landing Page Template](https://i.postimg.cc/q7xRmNVp/FB-IMG-16158730841972067.jpg)
+![alt Free Tailwind Landing Page Template](https://ibb.co/bjj0gzZV)
 
 ## Built with:
 - Tailwind CSS ^2.0
