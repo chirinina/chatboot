@@ -72,9 +72,9 @@
                 });
 
 				// BLOQUEO DE CLIK DERECHO
-				// document.addEventListener("contextmenu", function (event) {
-				// 	event.preventDefault();
-				// });
+				 document.addEventListener("contextmenu", function(event) {
+    				event.preventDefault();
+  				});
             
                     function toggleCommentSection() {
                         const section = document.getElementById('commentSection');
